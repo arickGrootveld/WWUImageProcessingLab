@@ -62,6 +62,11 @@ templateImage = imread(templateImageFilename);
 fig1 = figure(1); ax1 = axes(fig1);
 imshow(templateImage);
 title(ax1, 'Template Image Selected');
+disp("Hit any key to continue");
+input("");
+% Closing out other figures so that its not confusing what figure
+% they should be looking at
+close(figure(1));
 
 
 %% Loading images from the dataset
@@ -105,6 +110,9 @@ for m = 1:length(datasetList)
            disp("The X and Y coordinates are not valid for the template image"); 
         
         else
+           % Closing out other figures to make it more clear what the
+           % current focus is
+           close(figure(2));
            % Display the template image overlayed ontop of the dataset
            % image, scaled by input factors
            figure(1);
